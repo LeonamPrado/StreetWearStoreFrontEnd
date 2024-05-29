@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   constructor( private productService: ProductService, private router: ActivatedRoute){}
 
 ngOnInit(){
-  this.brand = this.router.snapshot.params['brand']
+  /*this.brand = this.router.snapshot.params['brand']
   this.productsByBrand = this.productService.getProductByBrand(this.brand)
   this.router.params.subscribe(
     (params: Params)=>{
@@ -23,6 +23,7 @@ ngOnInit(){
       this.productsByBrand = this.productService.getProductByBrand(this.brand)
     }
   )
+  */
 }
 
 }

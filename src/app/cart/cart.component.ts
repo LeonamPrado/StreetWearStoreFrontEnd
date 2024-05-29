@@ -8,7 +8,7 @@ import { Product } from '../products/product.model';
   styleUrl: './cart.component.css',
 })
 export class CartComponent implements OnInit {
-  @ViewChild('qtd') qtd!: ElementRef;
+  //@ViewChild('qtd') qtd!: ElementRef;
   cartProducts: Product[] = [];
 
   constructor(private cartService: CartService) {}
@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
     this.cartProducts = this.cartService.getCartProducts();
   }
   onSelected(i: number) {
-    this.cartProducts[i].qtd = +this.qtd.nativeElement.value
+    //this.cartProducts[i].qtd = +this.qtd.nativeElement.value
   }
 
   onRemove(i: number) {
