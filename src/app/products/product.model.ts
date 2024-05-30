@@ -17,6 +17,5 @@ export class Product {
     this.UrlDetail1 = UrlDetail1
     this.id = id
     this.brand = brand
-
   }
 }

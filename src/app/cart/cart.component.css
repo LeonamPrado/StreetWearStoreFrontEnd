@@ -5,29 +5,50 @@
   font-family: "Kanit", sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: transparent;
+  border: 0;
+  font-size: 24px;
+}
+.priceText{
+  margin-left: 8px;
 }
 .input{
   height: 40px; width: 45px; font-size: 20px;
 }
+
+.priceContainer{
+  display: flex;
+  align-items: center; /* Alinha verticalmente os itens */
+}
+
 @media (max-width: 876px){
   .priceFont{
-    font-size: 20px;
+    font-size: 22px;
   }
   .font{
     font-size: 18px;
   }
 }
-@media (max-width: 740px){
+@media (max-width: 745px){
 .container-xl{
   margin-top: 30px;
+}
+.priceFont{
+  font-size: 17px;
 }
 }
 @media (max-width: 617px){
   .row{
     margin: 20px
   }
-  .priceFont{
-    font-size: 16px;
+  .priceText{
+    margin-left: 0px;
+  }
+  .priceContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    justify-content: center;
   }
   .font{
     font-size: 14px;
@@ -42,20 +63,22 @@
   }
 }
 @media (max-width: 430px){
-  .priceFont{
-    font-size: 12px;
-  }
   .font{
     font-size: 10px;
+  }
+  .priceFont{
+    font-size: 12px;
   }
   .input{
     height: 24px; width: 24px; font-size: 12px;
   }
   }
-  @media (max-width: 312px){
+  @media (max-width: 341px){
     .priceFont{
-      font-size: 12px;
+      font-size: 9px;
     }
+  }
+  @media (max-width: 312px){
     .font{
       font-size: 8px;
     }}

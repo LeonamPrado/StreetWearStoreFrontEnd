@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CartService } from './cart.service';
 import { Product } from '../products/product.model';
+import { OrderItem } from './orderItem.model';
 
 @Component({
   selector: 'app-cart',
@@ -9,19 +10,23 @@ import { Product } from '../products/product.model';
 })
 export class CartComponent implements OnInit {
   //@ViewChild('qtd') qtd!: ElementRef;
-  cartProducts: Product[] = [];
+  cartProducts: OrderItem[] = [];
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartProducts = this.cartService.getCartProducts();
+    this.cartProducts = this.cartService.getCartProducts()
   }
   onSelected(i: number) {
     //this.cartProducts[i].qtd = +this.qtd.nativeElement.value
   }
-
   onRemove(i: number) {
-    this.cartService.removeProduct(i);
-    this.cartService.cartLength.next(this.cartService.getCartProducts().length);
+    this.cartService.removeCartProduct(i)
+  }
+  increaseQtd(i: number){
+    this.cartService.addQtd(i)
+  }
+  decreaseQtd(i: number){
+    this.cartService.removeQtd(i)
   }
 }

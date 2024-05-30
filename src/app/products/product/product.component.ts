@@ -19,7 +19,6 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.idParam = 
     this.productService.getProductById(this.router.snapshot.params['id']).subscribe(product => {
       this.product = product
     })
@@ -28,9 +27,12 @@ export class ProductComponent implements OnInit {
     this.productSize = this.size.nativeElement.value
   }
   onBuy(){
-  /* if(this.productSize === ''){
+    if(this.productSize === ''){
       return alert('Select the size')
     }
+    this.cartService.createOrderItem(1,this.productSize,this.product)
+    this.Router.navigate(['/cart'])
+    /*
     if(this.cartService.getCartProducts().map((a)=>a).filter((p)=>p.id === this.id && p.size === this.productSize).length !== 0){
       return this.Router.navigate(['/cart'])
     }

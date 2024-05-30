@@ -1,3 +1,4 @@
+
 <div class="container-xl">
   <div class="row" *ngIf="cartProducts.length === 0">
     <div class="col-sm text-center mt-5">
@@ -12,23 +13,23 @@
       </button>
     </div>
   </div>
-  <div class="row" *ngFor="let product of cartProducts; index as i">
+  <div class="row" *ngFor="let products of cartProducts; index as i">
     <div class="col-sm"></div>
     <div class="col-sm-3 col-4">
-      <a href="" [routerLink]="['/product/',product.id]">
-        <img [src]="product.UrlCover"  class="img-fluid" alt="" />
+      <a href="" [routerLink]="['/product/',products.product.id]">
+        <img [src]="'http://localhost:8080/' + products.product.urlCover"  class="img-fluid" alt="" />
       </a>
       <p></p>
     </div>
     <div class="col-sm-4 col-5 my-auto text-center">
-      <p class="h4 font truncate">{{ product.name }}</p>
-      <p class="h5 font" >Size: product.size</p>
+      <p class="h4 font truncate">{{ products.product.name }}</p>
+      <p class="h5 font" >Size: {{products.size}}</p>
       <button type="button" class="btn btn-danger mt-2 removeBtn text-center" (click)="onRemove(i)">X</button>
     </div>
-    <div class="col-xl-2 col-sm-3 col-3 my-auto d-flex text-center">
-      <input type="number" class="input" min="1"  #qtd (change)="onSelected(i)">
-      <p class="h4 priceFont my-auto" style="color: rgb(116, 116, 116)">R$ product.price * product.qtd 
-      </p>
+    <div class="col-xl-2 col-sm-3 col-3 priceContainer">
+      <!--<input type="number" class="input" min="1"  #qtd (change)="onSelected(i)">-->
+        <p class="priceFont"><button class="priceFont" (click)="decreaseQtd(i)">-</button>   {{ products.qtd }}   <button class="priceFont" (click)="increaseQtd(i)">+</button></p>
+        <p class="priceFont priceText" style="color: rgb(116, 116, 116)">R$ {{products.product.price * products.qtd}}</p>
     </div>
     <div class="col-sm"></div>
   </div>
@@ -38,3 +39,4 @@
     </div>
   </div>
 </div>
+
