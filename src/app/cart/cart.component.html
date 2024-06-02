@@ -23,7 +23,7 @@
     </div>
     <div class="col-sm-4 col-5 my-auto text-center">
       <p class="h4 font truncate">{{ products.product.name }}</p>
-      <p class="h5 font" >Size: {{products.size}}</p>
+      <p class="h5 font" >Size: {{products.size.split("x")[1]}}</p>
       <button type="button" class="btn btn-danger mt-2 removeBtn text-center" (click)="onRemove(i)">X</button>
     </div>
     <div class="col-xl-2 col-sm-3 col-3 priceContainer">
@@ -35,7 +35,7 @@
   </div>
   <div class="row" *ngIf="cartProducts.length !== 0">
     <div class="col text-center">
-      <button type="button" class="btn btn-danger btn-lg px-5 mt-5" >Buy</button>
+      <button type="button" class="btn btn-danger btn-lg px-5 mt-5" (click)="onBuy()">Buy</button>
     </div>
   </div>
 </div>

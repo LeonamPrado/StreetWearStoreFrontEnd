@@ -29,4 +29,16 @@ export class CartComponent implements OnInit {
   decreaseQtd(i: number){
     this.cartService.removeQtd(i)
   }
+
+  onBuy(){
+
+    this.cartService.postOrderItems().subscribe(
+      responseData =>  {
+        console.log(responseData)
+      }
+    )
+    alert("Pedido enviado com sucesso!")
+    this.cartProducts = []
+    this.cartService.cleanCart()
+  }
 }
