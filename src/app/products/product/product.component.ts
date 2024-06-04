@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
   idParam: number
   product: Product
   productSize: string = ''
+  isLoading = true
   
   constructor(private router: ActivatedRoute, private Router: Router ,private productService: ProductService, private cartService: CartService){
   }
@@ -21,6 +22,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.productService.getProductById(this.router.snapshot.params['id']).subscribe(product => {
       this.product = product
+      this.isLoading = false
     })
   }
   onSelected(){

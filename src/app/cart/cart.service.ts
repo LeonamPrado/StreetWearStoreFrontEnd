@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 
 export class CartService{
 
+
   constructor(private http : HttpClient){}
 
 
@@ -29,11 +30,13 @@ export class CartService{
     this.cartProducts.splice(i,1)
     this.cartLength.next(this.getCartProducts().length)
   }
+  
   addQtd(i: number){
     this.cartProducts[i].qtd += 1
     let size = this.cartProducts[i].size.split("x")[1]
     this.cartProducts[i].size = this.cartProducts[i].qtd.toString() + "x" + size
   }
+
   removeQtd(i: number){
     if(this.cartProducts[i].qtd <= 1){
       this.removeCartProduct(i)

@@ -1,4 +1,10 @@
+.container-xl{
+  min-height: 75vh;
+}
 
+h1{
+  min-height: 75vh;
+}
 
 .priceFont{
   font-family: "Kanit", sans-serif;

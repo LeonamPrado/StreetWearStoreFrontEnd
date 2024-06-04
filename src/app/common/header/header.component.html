@@ -11,15 +11,23 @@
     </div>
     <div class="col divCart">
       <div>
+        <a routerLink="/login" class="decoration">
+          <span>
+              <img
+              class="img-fluid loginIcon"
+              src="assets/common/loginIcon50.png"
+              alt=""
+            />
+          </span>
+        </a>
         <a routerLink="/cart" class="decoration">
           <span [ngClass]="cartLength !== 0 ? 'badge' : ''" [id]="cartLength">
               <img
-              class="img-fluid icon"
+              class="img-fluid cartIcon"
               src="assets/common/cartLogo.png"
               alt=""
             />
           </span>
-
         </a>
       </div>
     </div>

@@ -1,6 +1,9 @@
 a {
   text-decoration: none;
 }
+span{
+  padding: 0;
+}
 .logo {
   font-family: "Nothing You Could Do", cursive;
   font-weight: 550;
@@ -20,8 +23,7 @@ a {
   justify-content: center;
   align-items: center;
 }
-.icon{
-  width: auto;
+.cartIcon{
   height: 65px;
 }
 .badge:after{
@@ -47,13 +49,18 @@ a {
     text-shadow: rgba(255, 255, 255, 0.315) 8px 11px;
     letter-spacing: -4px;
   }
-  .icon{
-    height: 45px;
+
+}
+@media (max-width: 690px) {
+  .loginIcon{
+    height: 35px;
+  }
+  .cartIcon{
+    height: 50px;
   }
   .badge:after{
-    font-size: 10px;
-    left:-17px;
-    top:-15px;
+    font-size:10px;
+    top:-17px;
   }
 }
 
@@ -70,13 +77,14 @@ a {
   .cartNumber{
     font-size: 14px;
   }
+
 }
 @media (max-width: 500px) {
   .cartNumber {
     font-size: 12px;
   }
 }
-@media (max-width: 415px) {
+@media (max-width: 419px) {
   .title {
     font-size: 14px;
   }
@@ -87,4 +95,16 @@ a {
   .cartNumber{
     font-size: 10px;
   }
+  .loginIcon{
+    height: 25px;
+  }
+  .cartIcon{
+    height: 35px;
+  }
+  .badge:after{
+    font-size:8px;
+    left:-15px;
+    top:-15px;
+    border-radius:50%;
+  }  
 }

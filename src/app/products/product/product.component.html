@@ -1,5 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<div *ngIf="product" class="container-xl">
+<div *ngIf="isLoading" style="text-align: center; min-height: 75vh">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="product && !isLoading" class="container-xl">
   <div class="row">
     <div
       id="carouselExampleDark"
@@ -170,5 +173,8 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="!product" style="text-align: center">
+  <h1>Nenhum produto encontrado</h1>
 </div>
 

@@ -9,15 +9,20 @@ import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './common/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './common/loading-spinner/loading-spinner.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'products/:brand', component: ProductsComponent},
   { path: 'product/:id', component: ProductComponent},
   { path: 'cart', component: CartComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
@@ -29,11 +34,15 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     CartComponent,
-    NavBarComponent
+    NavBarComponent,
+    LoadingSpinnerComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],

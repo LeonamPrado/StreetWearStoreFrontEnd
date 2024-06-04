@@ -9,11 +9,15 @@ import { Product } from '../products/product.model';
 })
 export class HomeComponent implements OnInit {
   products: Product[] = []
+  isLoading = true
 
 
   constructor(private productService : ProductService){}
 
   ngOnInit() {
-    this.productService.fetchProducts().subscribe(products =>{this.products = products})
+    this.productService.fetchProducts().subscribe(products =>{
+      this.products = products
+      this.isLoading = false
+    })
   }
 }
