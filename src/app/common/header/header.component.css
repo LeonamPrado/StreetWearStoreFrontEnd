@@ -1,8 +1,9 @@
-a {
-  text-decoration: none;
-}
 span{
   padding: 0;
+}
+button{
+  background-color: transparent;
+  border: 0;
 }
 .logo {
   font-family: "Nothing You Could Do", cursive;
@@ -36,6 +37,9 @@ span{
   position:relative;
   left:-20px;
   top:-20px;
+}
+.logoutIcon{
+  height: 50px;
 }
 @media (max-width: 1245px) {
   .logo {

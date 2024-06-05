@@ -31,7 +31,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
         this.productsByBrand = products
         this.isLoading = false
       }
-
     );
   }
 

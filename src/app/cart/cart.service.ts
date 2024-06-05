@@ -3,20 +3,23 @@ import { Subject } from "rxjs";
 import { OrderItem } from "./orderItem.model";
 import { Product } from "../products/product.model";
 import { HttpClient } from "@angular/common/http";
+import { UserService } from "../user/user.service";
+import { User } from "../user/user.model";
 
 @Injectable({providedIn: 'root'})
 
 export class CartService{
 
 
-  constructor(private http : HttpClient){}
-
-
+  constructor(private http : HttpClient, private userService: UserService){}
 
   public cartProducts: OrderItem[] = []
 
+  
+
   cartLength = new Subject<number>()
   
+
   createOrderItem(qtd: number, size: String, product: Product){
     const orderItem = new OrderItem(qtd, size, product)
     this.cartProducts.push(orderItem)
@@ -63,9 +66,8 @@ export class CartService{
     }
   }
 
-  postOrderItems(){
+  postOrderItems(userId: number){
     let itemsToSend: OrderItem[]= [];
-
     this.cartProducts.forEach(item => {
       let findItem = itemsToSend.find(i => i.product.id === item.product.id)
       if(findItem !== undefined){
@@ -80,6 +82,6 @@ export class CartService{
       }
     })
     console.log(itemsToSend)
-    return this.http.post("http://localhost:8080/order",{orderItems: itemsToSend, userId: 1})
+    return this.http.post("http://localhost:8080/order",{orderItems: itemsToSend, userId})
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CartService } from '../../cart/cart.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +8,17 @@ import { CartService } from '../../cart/cart.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
-  cartLength: number
-  constructor(private cartService: CartService){
+  cartLength: number = 0
+  isLooged: boolean = false
+  constructor(private cartService: CartService, private userService: UserService){
   }
   ngOnInit(){
-    this.cartLength = this.cartService.getCartProducts().length
-    this.cartService.cartLength.subscribe(
-      (length)=>{
-        this.cartLength = length
-      }
-    )
+    this.cartService.cartLength.subscribe(length => this.cartLength = length)
+    this.userService.isLoggedIn.subscribe(response => this.isLooged = response)
+  }
+
+  handleLogout(){
+    this.userService.isLoggedIn.next(false)
+    this.userService.currentUser.next(0)
   }
 }

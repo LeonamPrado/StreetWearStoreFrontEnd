@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CartService } from './cart.service';
-import { Product } from '../products/product.model';
 import { OrderItem } from './orderItem.model';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,16 +9,14 @@ import { OrderItem } from './orderItem.model';
   styleUrl: './cart.component.css',
 })
 export class CartComponent implements OnInit {
-  //@ViewChild('qtd') qtd!: ElementRef;
   cartProducts: OrderItem[] = [];
+  userId: number;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private userService: UserService) {}
 
   ngOnInit() {
     this.cartProducts = this.cartService.getCartProducts()
-  }
-  onSelected(i: number) {
-    //this.cartProducts[i].qtd = +this.qtd.nativeElement.value
+    this.userService.currentUser.subscribe(user => this.userId = user)
   }
   onRemove(i: number) {
     this.cartService.removeCartProduct(i)
@@ -31,14 +29,17 @@ export class CartComponent implements OnInit {
   }
 
   onBuy(){
-
-    this.cartService.postOrderItems().subscribe(
-      responseData =>  {
-        console.log(responseData)
-      }
-    )
-    alert("Pedido enviado com sucesso!")
-    this.cartProducts = []
-    this.cartService.cleanCart()
+    if(this.userId === 0){
+      alert("You need to log in to send an order")
+    }else{
+      this.cartService.postOrderItems(this.userId).subscribe(
+        responseData =>  {
+          console.log(responseData)
+        }
+      )
+      alert("Order sent successfully!")
+      this.cartProducts = []
+      this.cartService.cleanCart()
+    }
   }
 }

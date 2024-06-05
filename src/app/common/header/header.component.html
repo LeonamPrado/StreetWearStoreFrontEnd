@@ -11,7 +11,7 @@
     </div>
     <div class="col divCart">
       <div>
-        <a routerLink="/login" class="decoration">
+        <a routerLink="/login" *ngIf="!isLooged">
           <span>
               <img
               class="img-fluid loginIcon"
@@ -20,7 +20,16 @@
             />
           </span>
         </a>
-        <a routerLink="/cart" class="decoration">
+        <button *ngIf="isLooged" (click)="handleLogout()">
+          <span>
+              <img
+              class="img-fluid logoutIcon loginIcon"
+              src="assets/common/logout.png"
+              alt=""
+            />
+          </span>
+        </button>
+        <a routerLink="/cart">
           <span [ngClass]="cartLength !== 0 ? 'badge' : ''" [id]="cartLength">
               <img
               class="img-fluid cartIcon"
