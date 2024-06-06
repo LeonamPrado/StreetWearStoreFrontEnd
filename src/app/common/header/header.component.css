@@ -1,7 +1,7 @@
-span{
+span {
   padding: 0;
 }
-button{
+button {
   background-color: transparent;
   border: 0;
 }
@@ -19,26 +19,26 @@ button{
   color: red;
   font-size: 22px;
 }
-.divCart{
+.divCart {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cartIcon{
+.cartIcon {
   height: 65px;
 }
-.badge:after{
-  content:attr(id);
-  font-size:14px;
+.badge:after {
+  content: attr(id);
+  font-size: 14px;
   color: #ff0000;
   background: white;
-  border-radius:50%;
+  border-radius: 50%;
   padding: 0 5px;
-  position:relative;
-  left:-20px;
-  top:-20px;
+  position: relative;
+  left: -20px;
+  top: -20px;
 }
-.logoutIcon{
+.logoutIcon {
   height: 50px;
 }
 @media (max-width: 1245px) {
@@ -53,18 +53,17 @@ button{
     text-shadow: rgba(255, 255, 255, 0.315) 8px 11px;
     letter-spacing: -4px;
   }
-
 }
 @media (max-width: 690px) {
-  .loginIcon{
+  .loginIcon {
     height: 35px;
   }
-  .cartIcon{
+  .cartIcon {
     height: 50px;
   }
-  .badge:after{
-    font-size:10px;
-    top:-17px;
+  .badge:after {
+    font-size: 10px;
+    top: -17px;
   }
 }
 
@@ -78,10 +77,9 @@ button{
   .title {
     font-size: 18px;
   }
-  .cartNumber{
+  .cartNumber {
     font-size: 14px;
   }
-
 }
 @media (max-width: 500px) {
   .cartNumber {
@@ -96,19 +94,19 @@ button{
     font-size: 21px;
     text-shadow: rgba(255, 255, 255, 0.315) 4px 8px;
   }
-  .cartNumber{
+  .cartNumber {
     font-size: 10px;
   }
-  .loginIcon{
+  .loginIcon {
     height: 25px;
   }
-  .cartIcon{
+  .cartIcon {
     height: 35px;
   }
-  .badge:after{
-    font-size:8px;
-    left:-15px;
-    top:-15px;
-    border-radius:50%;
-  }  
+  .badge:after {
+    font-size: 8px;
+    left: -15px;
+    top: -15px;
+    border-radius: 50%;
+  }
 }

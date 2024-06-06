@@ -1,7 +1,12 @@
 <div class="container-sm mt-5">
   <div class="row">
-    <div class="col"></div>
-    <div class="col">
+    <app-alert
+      [message]="'Email or Password wrong'"
+      *ngIf="loginError"
+      (close)="closeAlert()"
+    ></app-alert>
+    <div class="col-md-4 col-3"></div>
+    <div class="col mt-4">
       <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
         <div class="form-group mt-4">
           <label for="Email">Email address</label>
@@ -58,6 +63,6 @@
         </div>
       </form>
     </div>
-    <div class="col"></div>
+    <div class="col-md-4 col-3"></div>
   </div>
 </div>

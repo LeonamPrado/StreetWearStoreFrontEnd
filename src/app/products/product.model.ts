@@ -9,7 +9,7 @@ export class Product {
 
   
 
-  constructor(name: string, price: number, UrlCover: string, UrlDetail: string, UrlDetail1: string, id: number, brand: string, type: string, size: string){
+  constructor(name: string, price: number, UrlCover: string, UrlDetail: string, UrlDetail1: string, id: number, brand: string){
     this.name = name
     this.price = price
     this.UrlCover = UrlCover

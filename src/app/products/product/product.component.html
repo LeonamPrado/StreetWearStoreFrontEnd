@@ -4,6 +4,11 @@
 </div>
 <div *ngIf="product && !isLoading" class="container-xl">
   <div class="row">
+    <app-alert
+      [message]="'Select the size'"
+      *ngIf="sizeAlert"
+      (close)="closeAlert()"
+    ></app-alert>
     <div
       id="carouselExampleDark"
       class="carousel carousel-dark slide col-5 pt-5"
@@ -27,14 +32,25 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img [src]="'http://localhost:8080/' + product.urlDetail" class="d-block w-100 img-fluid" alt="..." />
+          <img
+            [src]="'http://localhost:8080/' + product.urlDetail"
+            class="d-block w-100 img-fluid"
+            alt="..."
+          />
         </div>
         <div class="carousel-item">
-          <img [src]="'http://localhost:8080/' + product.urlDetail1" class="d-block w-100 img-fluid" alt="..." />
+          <img
+            [src]="'http://localhost:8080/' + product.urlDetail1"
+            class="d-block w-100 img-fluid"
+            alt="..."
+          />
         </div>
       </div>
     </div>
-    <div class="col-5 pt-5 text-center mx-auto" *ngIf="product.type === 'SNEAKERS'">
+    <div
+      class="col-5 pt-5 text-center mx-auto"
+      *ngIf="product.type === 'SNEAKERS'"
+    >
       <br /><br />
       <div>
         <p class="h3">{{ product.name }}</p>
@@ -45,7 +61,12 @@
         <p class="h4 priceFont my-auto" style="color: rgb(116, 116, 116)">
           R${{ product.price }}
         </p>
-        <select #size (change)="onSelected()" name="size" class="form-select sizeSelect text-center" >
+        <select
+          #size
+          (change)="onSelected()"
+          name="size"
+          class="form-select sizeSelect text-center"
+        >
           <option value="" disabled selected>Size</option>
           <option value="38">38</option>
           <option value="39">39</option>
@@ -98,12 +119,15 @@
         </tbody>
       </table>
       <div class="pt-3">
-          <button class="btn btn-lg btn-danger" type="button" (click)="onBuy()">
-            Buy Now
-          </button>
+        <button class="btn btn-lg btn-danger" type="button" (click)="onBuy()">
+          Buy Now
+        </button>
       </div>
     </div>
-    <div class="col-5 pt-5 text-center mx-auto" *ngIf="product.type === 'TSHIRT'">
+    <div
+      class="col-5 pt-5 text-center mx-auto"
+      *ngIf="product.type === 'TSHIRT'"
+    >
       <br /><br />
       <div>
         <p class="h3">{{ product.name }}</p>
@@ -114,7 +138,12 @@
         <p class="h4 priceFont my-auto" style="color: rgb(116, 116, 116)">
           R${{ product.price }}
         </p>
-        <select #size (change)="onSelected()" name="size" class="form-select sizeSelect text-center">
+        <select
+          #size
+          (change)="onSelected()"
+          name="size"
+          class="form-select sizeSelect text-center"
+        >
           <option value="" selected disabled>Size</option>
           <option value="PP">PP</option>
           <option value="P">P</option>
@@ -127,7 +156,7 @@
       <br />
       <table class="table">
         <thead class="table-dark">
-          <tr >
+          <tr>
             <th scope="col" class="sTable">Size</th>
             <th scope="col" class="sTable">Height</th>
             <th scope="col" class="sTable">Width</th>
@@ -135,7 +164,7 @@
         </thead>
         <tbody>
           <tr>
-            <th class="sTable" >PP</th>
+            <th class="sTable">PP</th>
             <th class="sTable">67</th>
             <th class="sTable">50</th>
           </tr>
@@ -177,4 +206,3 @@
 <div *ngIf="!product" style="text-align: center">
   <h1>Nenhum produto encontrado</h1>
 </div>
-

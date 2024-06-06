@@ -13,7 +13,7 @@
       <div>
         <a routerLink="/login" *ngIf="!isLooged">
           <span>
-              <img
+            <img
               class="img-fluid loginIcon"
               src="assets/common/loginIcon50.png"
               alt=""
@@ -22,7 +22,7 @@
         </a>
         <button *ngIf="isLooged" (click)="handleLogout()">
           <span>
-              <img
+            <img
               class="img-fluid logoutIcon loginIcon"
               src="assets/common/logout.png"
               alt=""
@@ -31,7 +31,7 @@
         </button>
         <a routerLink="/cart">
           <span [ngClass]="cartLength !== 0 ? 'badge' : ''" [id]="cartLength">
-              <img
+            <img
               class="img-fluid cartIcon"
               src="assets/common/cartLogo.png"
               alt=""

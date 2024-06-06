@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './common/loading-spinner/loading-spinner.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { AlertComponent } from './common/alert/alert.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     LoadingSpinnerComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

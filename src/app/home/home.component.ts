@@ -5,19 +5,18 @@ import { Product } from '../products/product.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  products: Product[] = []
-  isLoading = true
+  products: Product[] = [];
+  isLoading = true;
 
-
-  constructor(private productService : ProductService){}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.productService.fetchProducts().subscribe(products =>{
-      this.products = products
-      this.isLoading = false
-    })
+    this.productService.fetchProducts().subscribe((products) => {
+      this.products = products;
+      this.isLoading = false;
+    });
   }
 }

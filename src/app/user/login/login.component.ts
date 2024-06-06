@@ -12,6 +12,7 @@ import { User } from '../user.model';
 export class LoginComponent implements OnInit {
   
   loginForm: FormGroup;
+  loginError: boolean = false
 
   constructor( private userService: UserService, private router: Router){}
 
@@ -22,6 +23,11 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  closeAlert(){
+    this.loginError = false
+    this.loginForm.reset()
+  }
+
   handleLogin(){
     this.userService.login(this.loginForm.value.email,this.loginForm.value.password).subscribe(response =>{
       if (response !== null){
@@ -29,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.userService.currentUser.next(response.id)
       }
       if(response === null){
-        alert("Email or Password wrong")
+        this.loginError = true
       }else{
         this.router.navigate(['/'])
       }

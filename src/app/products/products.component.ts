@@ -7,31 +7,32 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']  // Corrigido para styleUrls
+  styleUrls: ['./products.component.css'], // Corrigido para styleUrls
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   productsByBrand: Product[];
   brand: string;
   private routeSub: Subscription;
-  isLoading = true
+  isLoading = true;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {}
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe((params: Params) => {
-      this.isLoading = true
+      this.isLoading = true;
       this.brand = params['brand'];
       this.loadProductsByBrand();
     });
   }
 
   loadProductsByBrand() {
-    this.productService.getProductByBrand(this.brand).subscribe(
-      products =>{
-        this.productsByBrand = products
-        this.isLoading = false
-      }
-    );
+    this.productService.getProductByBrand(this.brand).subscribe((products) => {
+      this.productsByBrand = products;
+      this.isLoading = false;
+    });
   }
 
   ngOnDestroy() {
@@ -40,4 +41,3 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }
   }
 }
-

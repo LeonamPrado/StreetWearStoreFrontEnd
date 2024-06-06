@@ -12,34 +12,38 @@ export class CartComponent implements OnInit {
   cartProducts: OrderItem[] = [];
   userId: number;
 
-  constructor(private cartService: CartService, private userService: UserService) {}
+  constructor(
+    private cartService: CartService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
-    this.cartProducts = this.cartService.getCartProducts()
-    this.userService.currentUser.subscribe(user => this.userId = user)
+    this.cartProducts = this.cartService.getCartProducts();
+    this.userService.currentUser.subscribe((user) => (this.userId = user));
   }
   onRemove(i: number) {
-    this.cartService.removeCartProduct(i)
+    this.cartService.removeCartProduct(i);
   }
-  increaseQtd(i: number){
-    this.cartService.addQtd(i)
+  increaseQtd(i: number) {
+    this.cartService.addQtd(i);
   }
-  decreaseQtd(i: number){
-    this.cartService.removeQtd(i)
+  decreaseQtd(i: number) {
+    this.cartService.removeQtd(i);
   }
 
-  onBuy(){
-    if(this.userId === 0){
-      alert("You need to log in to send an order")
-    }else{
-      this.cartService.postOrderItems(this.userId).subscribe(
-        responseData =>  {
-          console.log(responseData)
-        }
-      )
-      alert("Order sent successfully!")
-      this.cartProducts = []
-      this.cartService.cleanCart()
+  onBuy() {
+    if (this.userId === 0) {
+      alert('You need to log in to send an order');
+    } else {
+      this.cartService.postOrderItems(this.userId).subscribe((responseData) => {
+        console.log(responseData);
+      });
+      alert('Order sent successfully!');
+      this.cartProducts = [];
+      this.cartService.cleanCart();
     }
+  }
+  teste() {
+    console.log(this.cartProducts);
   }
 }

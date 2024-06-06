@@ -1,26 +1,25 @@
-
-.imgCover{
-  transition: transform .5s;
+.imgCover {
+  transition: transform 0.5s;
 }
-.imgCover:hover{
+.imgCover:hover {
   transform: scale(1.25);
 }
-.decoration{
+.decoration {
   color: inherit;
   text-decoration: inherit;
 }
-.priceFont{
+.priceFont {
   font-family: "Kanit", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 @media (max-width: 662px) {
-  .card-title{
+  .card-title {
     font-size: 16px;
   }
+}
+@media (max-width: 324px) {
+  .card-title {
+    font-size: 12px;
   }
-  @media (max-width: 324px) {
-    .card-title{
-      font-size: 12px;
-    }
-    }
+}

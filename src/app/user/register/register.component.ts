@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit{
 
   registerForm: FormGroup;
+  erroMessage: string;
+  registerError: boolean = false;
 
   constructor(private userService: UserService, private router:Router){}
   
@@ -22,15 +24,22 @@ export class RegisterComponent implements OnInit{
     })
   }
 
+  closeAlert(){
+    this.registerError = false
+  }
+
   handleRegister(){
     if(this.registerForm.value.password !== this.registerForm.value.confirmPassword ){
-      return alert("The passwords are different")
+      this.erroMessage = "The passwords are different"
+      this.registerError = true
+      return
     }
     this.userService.register(this.registerForm.value.email, this.registerForm.value.password).subscribe(response =>{
       if (response){
         this.router.navigate(['/login'])
       }else{
-        alert("Email already in use")
+        this.erroMessage = "Email already in use"
+        this.registerError = true
       }
     })
   }
