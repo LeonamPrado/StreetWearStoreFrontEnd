@@ -5,15 +5,25 @@ button {
   background-color: transparent;
   border: 0;
 }
+
+
+.iconUser{
+  height: 50px;
+}
+.iconCart{
+  height: 50px;
+}
+.iconLogout{
+  height: 45px;
+}
 .logo {
-  font-family: "Nothing You Could Do", cursive;
-  font-weight: 550;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
   font-style: normal;
   font-size: 74px;
-  letter-spacing: -6px;
-  rotate: z -5deg;
-  color: rgb(255, 255, 255);
-  text-shadow: rgba(255, 255, 255, 0.315) 15px 25px;
+  letter-spacing: -4px;
+  color: black;
+  margin: 0;
 }
 .cartNumber {
   color: red;
@@ -24,89 +34,75 @@ button {
   justify-content: center;
   align-items: center;
 }
-.cartIcon {
-  height: 65px;
-}
+
 .badge:after {
   content: attr(id);
-  font-size: 14px;
+  font-size: 16px;
   color: #ff0000;
-  background: white;
-  border-radius: 50%;
   padding: 0 5px;
   position: relative;
-  left: -20px;
-  top: -20px;
+  left: -15px;
+  top: -13px;
 }
-.logoutIcon {
-  height: 50px;
-}
-@media (max-width: 1245px) {
-  .logo {
-    font-size: 54px;
-    text-shadow: rgba(255, 255, 255, 0.315) 10px 20px;
+
+@media (max-width: 800px) {
+  .logo{
+    font-size: 60px;
   }
-}
-@media (max-width: 1015px) {
-  .logo {
-    font-size: 34px;
-    text-shadow: rgba(255, 255, 255, 0.315) 8px 11px;
-    letter-spacing: -4px;
+  .iconUser{
+    height: 40px;
   }
-}
-@media (max-width: 690px) {
-  .loginIcon {
+  .iconCart{
+    height: 40px;
+    padding-bottom: 1px;
+  }
+  .iconLogout{
     height: 35px;
-  }
-  .cartIcon {
-    height: 50px;
-  }
-  .badge:after {
-    font-size: 10px;
-    top: -17px;
   }
 }
 
 @media (max-width: 630px) {
   .logo {
-    font-size: 30px;
-    letter-spacing: -2px;
+    font-size: 50px;
   }
-}
-@media (max-width: 565px) {
-  .title {
-    font-size: 18px;
+  .iconUser{
+    height: 35px;
   }
-  .cartNumber {
+  .iconCart{
+    height: 35px;
+    padding-bottom: 2px;
+  }
+  .iconLogout{
+    height: 30px;
+  }
+  .badge:after{
     font-size: 14px;
   }
 }
+
 @media (max-width: 500px) {
-  .cartNumber {
+  .logo {
+    font-size: 44px;
+  }
+  .iconUser{
+    height: 30px;
+  }
+  .iconCart{
+    height: 30px;
+    padding-bottom: 2px;
+  }
+  .iconLogout{
+    height: 25px;
+  }
+  
+  .badge:after{
     font-size: 12px;
+    left: -12px;
+    top: -11px;
   }
 }
 @media (max-width: 419px) {
-  .title {
-    font-size: 14px;
-  }
   .logo {
-    font-size: 21px;
-    text-shadow: rgba(255, 255, 255, 0.315) 4px 8px;
-  }
-  .cartNumber {
-    font-size: 10px;
-  }
-  .loginIcon {
-    height: 25px;
-  }
-  .cartIcon {
-    height: 35px;
-  }
-  .badge:after {
-    font-size: 8px;
-    left: -15px;
-    top: -15px;
-    border-radius: 50%;
+    font-size: 36px;
   }
 }

@@ -11,6 +11,9 @@ import { UserService } from '../user/user.service';
 export class CartComponent implements OnInit {
   cartProducts: OrderItem[] = [];
   userId: number;
+  message: string;
+  noUserAlert: boolean = false;
+  buyAlert: boolean = false;
 
   constructor(
     private cartService: CartService,
@@ -31,19 +34,26 @@ export class CartComponent implements OnInit {
     this.cartService.removeQtd(i);
   }
 
+  closeNoUserAlert(){
+    this.noUserAlert = false
+  }
+
+  closeBuyAlert(){
+    this.buyAlert = false
+    this.cartProducts = [];
+    this.cartService.cleanCart();
+  }
+
   onBuy() {
     if (this.userId === 0) {
-      alert('You need to log in to send an order');
+      this.message = 'You need to log in to send an order';
+      this.noUserAlert = true
+      return
     } else {
-      this.cartService.postOrderItems(this.userId).subscribe((responseData) => {
-        console.log(responseData);
-      });
-      alert('Order sent successfully!');
-      this.cartProducts = [];
-      this.cartService.cleanCart();
+      this.cartService.postOrderItems(this.userId).subscribe()
+      this.message = 'Order sent successfully!';
+      this.buyAlert = true
     }
   }
-  teste() {
-    console.log(this.cartProducts);
-  }
+
 }

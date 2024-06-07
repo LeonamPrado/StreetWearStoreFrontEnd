@@ -13,6 +13,16 @@
     </div>
   </div>
   <div class="row" *ngFor="let products of cartProducts; index as i">
+    <app-alert
+      [message]="message"
+      *ngIf="noUserAlert"
+      (close)="closeNoUserAlert()"
+    ></app-alert>
+    <app-alert
+      [message]="message"
+      *ngIf="buyAlert"
+      (close)="closeBuyAlert()"
+    ></app-alert>
     <div class="col-sm"></div>
     <div class="col-sm-3 col-4">
       <a href="" [routerLink]="['/product/', products.product.id]">
@@ -60,4 +70,4 @@
     </div>
   </div>
 </div>
-<button (click)="teste()">Teste</button>
+
