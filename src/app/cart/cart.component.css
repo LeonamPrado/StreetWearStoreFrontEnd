@@ -1,5 +1,6 @@
 .container-xl {
   min-height: 75vh;
+  margin-top: 150px;
 }
 .priceFont {
   font-family: "Kanit", sans-serif;

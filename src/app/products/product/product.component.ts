@@ -10,10 +10,12 @@ import { Product } from '../product.model';
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
-  @ViewChild('size') size!: ElementRef;
+  sizesShoes: string[] = ['34', '35', '36','37', '38', '39', '40', '41', '42', '43', '44']
+  unavailableSizes: string[] = ['35', '36', '40', '44', 'PP', 'G'];
+  sizesTshirts: string[] = ['PP', 'P', 'M', 'G', 'GG'];
+  selectedSize: string = '';
   idParam: number;
   product: Product;
-  productSize: string = '';
   isLoading: boolean = true;
   sizeAlert: boolean = false;
 
@@ -32,8 +34,14 @@ export class ProductComponent implements OnInit {
         this.isLoading = false;
       });
   }
-  onSelected() {
-    this.productSize = this.size.nativeElement.value;
+
+  isUnavailable(size: string): boolean {
+    return this.unavailableSizes.includes(size);
+  }
+
+  selectSize(size: string) {
+    this.selectedSize = size;
+    console.log('Cor selecionada:', this.selectedSize);
   }
 
   closeAlert() {
@@ -41,14 +49,14 @@ export class ProductComponent implements OnInit {
   }
 
   onBuy() {
-    if (this.productSize === '') {
+    if (this.selectedSize === '') {
       this.sizeAlert = true;
       return;
     }
-    if (this.cartService.findByIdAndSize(this.product.id, this.productSize)) {
+    if (this.cartService.findByIdAndSize(this.product.id, this.selectedSize)) {
       return this.Router.navigate(['/cart']);
     }
-    this.cartService.createOrderItem(1, '1x' + this.productSize, this.product);
+    this.cartService.createOrderItem(1, '1x' + this.selectedSize, this.product);
     this.cartService.cartLength.next(this.cartService.getCartProducts().length);
     this.Router.navigate(['/cart']);
   }

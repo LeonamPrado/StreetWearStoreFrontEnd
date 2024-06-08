@@ -1,6 +1,5 @@
-<app-nav-bar></app-nav-bar>
-
-<div class="container-xxl mt-4">
+<div class="container-xxl">
+  <app-nav-bar></app-nav-bar>
   <div *ngIf="isLoading" style="text-align: center; min-height: 75vh">
     <app-loading-spinner></app-loading-spinner>
   </div>
@@ -18,12 +17,16 @@
               alt="Card image cap"
             />
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center p-0">
             <p class="card-title h3">{{ product.name }}</p>
           </div>
-          <div class="card-footer text-center bg-transparent border-0">
-            <p class="card-text h4 priceFont" style="color: rgb(116, 116, 116)">
-              R${{ product.price }}
+          <hr class="m-0">
+          <div class="card-footer text-center bg-transparent m-0 border-0">
+            <p class="card-text priceFont m-0" style="color: black">
+              R$ {{ product.price }}
+            </p>
+            <p class="m-0" style="color: rgb(116, 116, 116)">
+              10 x R$ {{ product.price/10 }}
             </p>
           </div>
         </div>

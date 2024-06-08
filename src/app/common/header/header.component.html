@@ -1,34 +1,35 @@
-<div class="container-fluid">
+<div class="container-fluid headerContainer">
   <div class="row">
     <div class="col-xl-2 col-sm-3 col-4 divLogo">
       <a routerLink="">
-        <p class="logo p-3">STREET</p>
+        <p class="logo p-2">STREET</p>
       </a>
     </div>
-    <div class="col-xl-8 col-sm-6 col-4">
-    </div>
+    <div class="col-xl-8 col-sm-6 col-4"></div>
+
     <div class="col divCart">
-      <div>
-        <a routerLink="/login" *ngIf="!isLooged">
-          <span>
-            <img
-              class="img-fluid iconUser"
-              src="assets/common/userIcon.png"
-              alt=""
-            />
-          </span>
-        </a>
-        <button *ngIf="isLooged" (click)="handleLogout()">
-          <span>
-            <img
-              class="img-fluid iconLogout"
-              src="assets/common/logoutIcon.png"
-              alt=""
-            />
-          </span>
-        </button>
-        <a routerLink="/cart">
-          <span [ngClass]="cartLength !== 0 ? 'badge' : ''" [id]="cartLength">
+      <a routerLink="/login" *ngIf="!isLooged">
+        <span>
+          <img
+            class="img-fluid iconUser"
+            src="assets/common/userIcon.png"
+            alt=""
+          />
+        </span>
+      </a>
+        <span *ngIf="isLooged" (click)="handleLogout()">
+          <img
+            class="img-fluid iconLogout"
+            src="assets/common/logoutIcon.png"
+            alt=""
+          />
+        </span>
+      <!--
+                <a routerLink="/cart">
+          <span
+            class="badge"
+            [id]="cartLength"
+          >
             <img
               class="img-fluid iconCart"
               src="assets/common/cartIcon.png"
@@ -36,6 +37,24 @@
             />
           </span>
         </a>
+        -->
+      <div class="cart-container">
+        <a routerLink="/cart">
+          <i class="">
+            <img
+              class="img-fluid iconCart"
+              src="assets/common/cartIcon.png"
+              alt=""
+            />
+          </i>
+        </a>
+        <div
+          [ngClass]="cartLength === 0 ? 'd-none' : ''"
+          class="cart-counter"
+          id="cartCounter"
+        >
+          {{ cartLength }}
+        </div>
       </div>
     </div>
   </div>

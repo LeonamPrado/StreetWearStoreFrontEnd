@@ -2,62 +2,77 @@ span {
   padding: 0;
 }
 button {
-  background-color: transparent;
   border: 0;
 }
-
+.headerContainer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  z-index: 1000; /* Certifique-se que o header está acima de outros elementos */
+}
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+.cart-counter {
+  position:absolute;
+  top: 20px;
+  right: 14.5px;
+  color: rgb(255, 0, 0);
+  padding: 2px 6px;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 .iconUser{
   height: 50px;
 }
 .iconCart{
-  height: 50px;
+  height: 52px;
+  position:sticky
 }
 .iconLogout{
   height: 45px;
+  background-color: transparent;
+  cursor: pointer;
 }
 .logo {
   font-family: "Libre Baskerville", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 74px;
+  font-size: 60px;
   letter-spacing: -4px;
   color: black;
   margin: 0;
 }
-.cartNumber {
-  color: red;
-  font-size: 22px;
-}
+
 .divCart {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.badge:after {
-  content: attr(id);
-  font-size: 16px;
-  color: #ff0000;
-  padding: 0 5px;
-  position: relative;
-  left: -15px;
-  top: -13px;
-}
 
 @media (max-width: 800px) {
   .logo{
-    font-size: 60px;
+    font-size: 54px;
   }
   .iconUser{
     height: 40px;
   }
   .iconCart{
-    height: 40px;
-    padding-bottom: 1px;
+    height: 42px;
   }
   .iconLogout{
     height: 35px;
+  }
+  .cart-counter {
+    font-size: 14px;
+    top: 16px;
+    right: 10px;
   }
 }
 
@@ -69,14 +84,15 @@ button {
     height: 35px;
   }
   .iconCart{
-    height: 35px;
-    padding-bottom: 2px;
+    height: 37px;
   }
   .iconLogout{
     height: 30px;
   }
-  .badge:after{
-    font-size: 14px;
+  .cart-counter {
+    font-size: 12px;
+    top: 14px;
+    right: 9px;
   }
 }
 
@@ -88,18 +104,17 @@ button {
     height: 30px;
   }
   .iconCart{
-    height: 30px;
-    padding-bottom: 2px;
+    height: 32px;
   }
   .iconLogout{
     height: 25px;
   }
-  
-  .badge:after{
-    font-size: 12px;
-    left: -12px;
-    top: -11px;
+  .cart-counter {
+    font-size: 10px;
+    top: 12px;
+    right: 7px;
   }
+
 }
 @media (max-width: 419px) {
   .logo {

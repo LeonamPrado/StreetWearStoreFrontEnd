@@ -1,15 +1,70 @@
 .container-xl {
   min-height: 75vh;
+  margin-top: 160px;
+}
+.sizeImg {
+  width: 30px;
+  margin-left: 20px;
+}
+.sizeImg p {
+  margin-left: 5px;
+  padding-top: 14px;
+  font-size: 16px;
+}
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }
 
-h1 {
-  min-height: 75vh;
+.button-container {
+  width: 100%;
+}
+.sizeBtn {
+  font-size: 20px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #000;
+  background-color: #fff;
+  cursor: pointer;
+}
+button.selected {
+  background-color: #3fd296;
+  color: white;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+button.unavailable {
+  background-color: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.buyBtn {
+  color: white;
+  font-size: 20px;
+  width: 40%;
+  padding: 10px;
+  border-radius: 0;
+  background-color: #3fd296;
+  cursor: pointer;
+}
+.buyBtn img {
+  margin-left: 10px;
+  height: auto;
+  width: 18%;
+  transition: 1s;
+}
+.buyBtn:hover img {
+  margin-left: 18px;
 }
 
 .priceFont {
   font-family: "Kanit", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 22px;
 }
 .sizeSelect {
   width: 100px;
@@ -20,76 +75,83 @@ h1 {
   align-items: center;
   column-gap: 25px;
 }
-th {
-  font-family: "Kanit", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 18px;
-}
 
-@media (max-width: 1150px) {
-  .carousel-indicators {
-    bottom: 60px;
-  }
-}
-@media (max-width: 950px) {
-  .carousel-indicators {
-    bottom: 120px;
+@media (max-width: 870px) {
+  .buyBtn {
+    font-size: 16px;
+    width: 45%;
   }
 }
 @media (max-width: 800px) {
-  .carousel-indicators {
-    bottom: 180px;
+  .carousel span {
+    margin-bottom: 130px;
+  }
+  .buyBtn {
+    font-size: 16px;
+    width: 45%;
+  }
+  .button-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-@media (max-width: 650px) {
-  .carousel-indicators {
-    bottom: 240px;
+@media (max-width: 670px) {
+  .carousel span {
+    margin-bottom: 180px;
+  }
+  .buyBtn {
+    width: 60%;
+  }
+  .button-grid {
+    gap: 5px;
+  }
+  .sizeBtn {
+    font-size: 15px;
   }
 }
-@media (max-width: 519px) {
-  .carousel-indicators {
-    bottom: 300px;
+
+@media (max-width: 515px) {
+  .sizeBtn {
+    padding: 5px;
+  }
+  .carousel span {
+    margin-bottom: 260px;
   }
   .priceFont {
     font-size: 17px;
   }
+  .subPrice {
+    font-size: 13px;
+  }
   .h3 {
     font-size: 18px;
   }
-}
-@media (max-width: 450px) {
-  .carousel-indicators {
-    bottom: 360px;
+  .button-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .buyBtn {
+    width: 80%;
+  }
+  .sizeImg {
+    width: 25px;
+  }
+  .sizeImg p {
+    font-size: 12px;
   }
 }
-@media (max-width: 402px) {
-  .carousel-indicators {
-    bottom: 400px;
+
+@media (max-width: 401px) {
+  .buyBtn {
+    width: 100%;
   }
+
   .container-xl {
     min-height: 75vh;
   }
   .h3 {
     font-size: 14px;
   }
-  .priceFont {
-    font-size: 13px;
-  }
   .sizeSelect {
     width: 70px;
     font-size: 10px;
-  }
-  @media (max-width: 385px) {
-    .btn-danger {
-      font-size: 15px;
-      width: 120px;
-    }
-    .sTable {
-      font-size: 10px;
-    }
-    .carousel-indicators {
-      bottom: 320px;
-    }
   }
 }

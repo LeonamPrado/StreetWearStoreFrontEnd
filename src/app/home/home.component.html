@@ -1,8 +1,27 @@
-<app-nav-bar></app-nav-bar>
-
+<div class="w-100 text-center bg-black d-flex justify-content-center align-items-center blackBanner">
+  <p class="text-white m-0">Free Shipment for all country</p>
+  <img src="assets/common/deliveryIcon.png" class="truckIcon ms-2" alt="">
+</div>
+<div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="8000">
+      <img src="assets/common/banner1.webp" class="d-block w-100 h-100 carouselImg" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="8000">
+      <img src="assets/common/banner2.webp" class="d-block w-100 h-100 carouselImg" alt="...">
+    </div>
+  </div>
+</div>
 <div class="container-xxl mt-4">
+  <div class="line-text">
+    BRANDS WE WORK WITH
+  </div>
+  <app-nav-bar></app-nav-bar>
   <div *ngIf="isLoading" style="text-align: center; min-height: 75vh">
     <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div class="productsTitle">
+    ALL PRODUCTS
   </div>
   <div *ngIf="!isLoading" class="card-group row">
     <div class="col-sm-4 col-xxl-3 col-6" *ngFor="let product of products">
@@ -15,12 +34,16 @@
               alt="Card image cap"
             />
           </div>
-          <div class="card-body text-center">
-            <p class="card-title h3">{{ product.name }}</p>
+          <div class="card-body text-center p-0">
+            <p class="card-title">{{ product.name }}</p>
           </div>
-          <div class="card-footer text-center bg-transparent mb-2 border-0">
-            <p class="card-text h4 priceFont" style="color: rgb(116, 116, 116)">
-              R${{ product.price }}
+          <hr class="m-0">
+          <div class="card-footer text-center bg-transparent m-0 border-0">
+            <p class="card-text priceFont m-0" style="color: black">
+              R$ {{ product.price }}
+            </p>
+            <p class="m-0" style="color: rgb(116, 116, 116)">
+              10 x R$ {{ product.price/10 }}
             </p>
           </div>
         </div>

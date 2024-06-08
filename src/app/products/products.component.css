@@ -1,4 +1,6 @@
-
+.container-xxl{
+  margin-top: 160px;
+}
 .imgCover{
   transition: transform .5s;
 }
@@ -13,6 +15,7 @@
   font-family: "Kanit", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 22px;
 }
 .container-xxl{
   min-height: 60vh;
