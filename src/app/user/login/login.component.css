@@ -1,7 +1,26 @@
-.container-sm{
+.container-xl{
  min-height: 70vh;
  margin-top: 160px;
 }
-small{
- color: red;
+.title{
+ font-size: 24px;
 }
+input{
+ border-radius: 0;
+}
+.btn{
+ border: 1px solid black;
+ border-radius: 0;
+ font-size: 18px;
+}
+.erro{
+ cursor: not-allowed;
+ 
+ border: 1px solid red;
+}
+@media(max-width: 1200px){
+  .loginContainer{
+   margin-bottom: 80px;
+  }
+}
+

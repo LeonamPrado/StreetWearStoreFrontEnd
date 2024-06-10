@@ -1,68 +1,166 @@
-<div class="container-sm">
+<div class="container-xl">
   <div class="row">
-    <app-alert
-      [message]="'Email or Password wrong'"
-      *ngIf="loginError"
-      (close)="closeAlert()"
-    ></app-alert>
-    <div class="col-md-4 col-3"></div>
-    <div class="col mt-4">
-      <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
-        <div class="form-group mt-4">
-          <label for="Email">Email address</label>
-          <input
-            formControlName="email"
-            type="email"
-            class="form-control"
-            id="Email"
-            aria-describedby="email"
-            placeholder="Enter email"
-            [ngClass]="
-              (loginForm.get('email').touched ||
-                loginForm.get('email').dirty) &&
-              loginForm.get('email').errors
-                ? 'is-invalid'
-                : ''
-            "
-          />
-          <div class="invalid-feedback">Email is required</div>
-        </div>
-        <div class="form-group mt-4">
-          <label for="Password">Password</label>
-          <input
-            formControlName="password"
-            type="password"
-            class="form-control"
-            id="Password"
-            placeholder="Password"
-            [ngClass]="
-              (loginForm.get('password').touched ||
-                loginForm.get('password').dirty) &&
-              loginForm.get('password').errors
-                ? 'is-invalid'
-                : ''
-            "
-          />
-          <div class="invalid-feedback">Password is required</div>
-          <a href="" routerLink="/register"
-            ><small class="form-text">Create an account</small></a
-          >
-        </div>
-        <div class="form-group mt-4 text-center">
-          <button
-            [ngClass]="
-              loginForm.get('password').errors || loginForm.get('email').errors
-                ? 'disabled'
-                : ''
-            "
-            type="submit"
-            class="btn btn-danger"
-          >
-            Login
-          </button>
-        </div>
-      </form>
+    <div class="col-xl-1 col-3"></div>
+    <div class="col-xl-4 col-6 loginContainer">
+      <p class="text-center title">LOGIN</p>
+      <hr>
+      <div>
+        <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+          <div class="form-group mt-4">
+            <label for="loginEmail">Email address</label>
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="loginEmail"
+              aria-describedby="email"
+              placeholder="Enter email"
+              [ngClass]="
+                (loginForm.get('email').touched ||
+                  loginForm.get('email').dirty) &&
+                loginForm.get('email').errors
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div class="invalid-feedback">Email is required</div>
+          </div>
+          <div class="form-group mt-4">
+            <label for="loginPassword">Password</label>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              placeholder="Password"
+              [ngClass]="
+                (loginForm.get('password').touched ||
+                  loginForm.get('password').dirty) &&
+                loginForm.get('password').errors
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div class="invalid-feedback">Password is required</div>
+          </div>
+          <div class="form-group mt-4 text-center">
+            <button
+              [disabled]="
+                loginForm.get('password').errors ||
+                loginForm.get('email').errors
+              "
+              [ngClass]="
+                loginForm.get('password').errors ||
+                loginForm.get('email').errors
+                  ? 'erro'
+                  : ''
+              "
+              type="submit"
+              class="btn"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="col-md-4 col-3"></div>
+    <div class="col-xl-1 col-3"></div>
+    <div class="col-xl-1 col-3"></div>
+    <div class="col-xl-4 col-6">
+      <p class="text-center title">REGISTER</p>
+      <hr>
+      <div>
+        <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+          <div class="form-group mt-4">
+            <label for="registerEmail">Email address</label>
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="registerEmail"
+              aria-describedby="email"
+              placeholder="Enter email"
+              [ngClass]="
+                (registerForm.get('email').touched ||
+                  registerForm.get('email').dirty) &&
+                registerForm.get('email').errors
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div class="invalid-feedback">Email is required</div>
+          </div>
+          <div class="form-group mt-4">
+            <label for="registerPassword">Password</label>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="registerPassword"
+              placeholder="Password"
+              [ngClass]="
+                (registerForm.get('password').touched ||
+                  registerForm.get('password').dirty) &&
+                registerForm.get('password').errors
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div class="invalid-feedback">Password is required</div>
+          </div>
+          <div class="form-group mt-4">
+            <label for="registerConfirmPassword">Comfirm Password</label>
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              class="form-control"
+              id="registerConfirmPassword"
+              placeholder="Confirm Password"
+              [ngClass]="
+                (registerForm.get('confirmPassword').touched ||
+                  registerForm.get('confirmPassword').dirty) &&
+                registerForm.get('confirmPassword').errors
+                  ? 'is-invalid'
+                  : ''
+              "
+            />
+            <div class="invalid-feedback">Confirm Password is required</div>
+          </div>
+          <div class="form-group mt-4 text-center">
+            <button
+              [disabled]="
+                registerForm.get('password').errors ||
+                registerForm.get('email').errors ||
+                registerForm.get('confirmPassword').errors
+              "
+              [ngClass]="
+                registerForm.get('password').errors ||
+                registerForm.get('email').errors ||
+                registerForm.get('confirmPassword').errors
+                  ? 'erro'
+                  : ''
+              "
+              type="submit"
+              class="btn"
+            >
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-xl-1 col-3"></div>
   </div>
 </div>
+<app-alert
+      [message]="'Email or Password wrong'"
+      *ngIf="loginError"
+      (close)="closeLoginAlert()"
+    ></app-alert>
+
+    <app-alert
+      [message]="erroMessage"
+      *ngIf="registerError"
+      (close)="closeRegisterAlert()"
+    ></app-alert>
+

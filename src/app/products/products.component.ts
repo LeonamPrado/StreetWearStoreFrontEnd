@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from './product.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router, private viewportScroller: ViewportScroller
   ) {}
 
   ngOnInit() {
@@ -25,6 +27,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.isLoading = true;
       this.brand = params['brand'];
       this.loadProductsByBrand();
+    });
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      }
     });
   }
 

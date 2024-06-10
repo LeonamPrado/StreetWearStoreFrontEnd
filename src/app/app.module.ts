@@ -14,8 +14,8 @@ import { NavBarComponent } from './common/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './common/loading-spinner/loading-spinner.component';
 import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
 import { AlertComponent } from './common/alert/alert.component';
+import { Location } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
@@ -23,7 +23,6 @@ const appRoutes: Routes = [
   { path: 'product/:id', component: ProductComponent},
   { path: 'cart', component: CartComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
@@ -38,7 +37,6 @@ const appRoutes: Routes = [
     NavBarComponent,
     LoadingSpinnerComponent,
     LoginComponent,
-    RegisterComponent,
     AlertComponent
   ],
   imports: [
@@ -48,7 +46,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
