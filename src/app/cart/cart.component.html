@@ -34,40 +34,38 @@
       </a>
       <p></p>
     </div>
-    <div class="col-sm-4 col-5 my-auto text-center">
-      <p class="h4 font truncate">{{ products.product.name }}</p>
-      <p class="h5 font">Size: {{ products.size.split("x")[1] }}</p>
+    <div class="col-sm-4 col-5 nameContainer">
+      <p class="font truncate">{{ products.product.name }}</p>
+      <p class="font">Size: {{ products.size.split("x")[1] }}</p>
+      <div class="d-flex justify-content-center">
+        <p class="priceFont">
+          <button class="priceFont" (click)="decreaseQtd(i)">-</button>
+          {{ products.qtd }}
+          <button class="priceFont" (click)="increaseQtd(i)">+</button>
+        </p>
+        <p class="priceFont priceText" style="color: rgb(116, 116, 116)">
+          R$ {{ products.product.price * products.qtd }}
+        </p>
+      </div>
+    </div>
+    <div
+      class="col-sm-3 col-3 d-flex justify-content-center align-content-center"
+    >
       <button
         type="button"
-        class="btn btn-danger mt-2 removeBtn text-center"
+        class="btn mt-2 removeBtn text-center border-0"
         (click)="onRemove(i)"
       >
-        X
+        <img src="assets/common/trash.png" class="img-fluid trashIcon" alt="" />
       </button>
-    </div>
-    <div class="col-xl-2 col-sm-3 col-3 priceContainer">
-      <!--<input type="number" class="input" min="1"  #qtd (change)="onSelected(i)">-->
-      <p class="priceFont">
-        <button class="priceFont" (click)="decreaseQtd(i)">-</button>
-        {{ products.qtd }}
-        <button class="priceFont" (click)="increaseQtd(i)">+</button>
-      </p>
-      <p class="priceFont priceText" style="color: rgb(116, 116, 116)">
-        R$ {{ products.product.price * products.qtd }}
-      </p>
     </div>
     <div class="col-sm"></div>
   </div>
   <div class="row" *ngIf="cartProducts.length !== 0">
     <div class="col text-center">
-      <button
-        type="button"
-        class="btn btn-danger btn-lg px-5 mt-5"
-        (click)="onBuy()"
-      >
+      <button type="button" class="btn mt-5 buyBtn" (click)="onBuy()">
         Buy
       </button>
     </div>
   </div>
 </div>
-

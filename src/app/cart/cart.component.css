@@ -1,6 +1,28 @@
 .container-xl {
-  min-height: 75vh;
   margin-top: 150px;
+  min-height: 75vh;
+}
+.font {
+  font-size: 22px;
+}
+.trashIcon {
+  width: 35px;
+  margin-bottom: 20px;
+}
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.buyBtn {
+  color: white;
+  font-size: 20px;
+  width: 15%;
+  padding: 10px;
+  border-radius: 0;
+  background-color: #3fd296;
+  cursor: pointer;
 }
 .priceFont {
   font-family: "Kanit", sans-serif;
@@ -21,7 +43,7 @@
 
 .priceContainer {
   display: flex;
-  align-items: center; /* Alinha verticalmente os itens */
+  align-items: center;
 }
 
 @media (max-width: 876px) {
@@ -33,33 +55,28 @@
   }
 }
 @media (max-width: 745px) {
-  .container-xl {
-    margin-top: 30px;
+  .buyBtn {
+    width: 30%;
   }
   .priceFont {
     font-size: 17px;
   }
+  .trashIcon {
+    width: 30px;
+  }
 }
 @media (max-width: 617px) {
+  .buyBtn {
+    width: 45%;
+  }
   .row {
     margin: 20px;
   }
   .priceText {
     margin-left: 0px;
   }
-  .priceContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: space-evenly;
-    justify-content: center;
-  }
   .font {
     font-size: 14px;
-  }
-  .removeBtn {
-    height: 30px;
-    width: 40px;
-    font-size: 12px;
   }
   .input {
     height: 30px;
@@ -68,6 +85,9 @@
   }
 }
 @media (max-width: 430px) {
+  .trashIcon {
+    width: 25px;
+  }
   .font {
     font-size: 10px;
   }

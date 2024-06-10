@@ -1,10 +1,10 @@
 .truckIcon{
-  height: 35px;
+  height: 28px;
   margin-bottom: 8px;
 }
 .blackBanner{
   margin-top: 110px;
-  font-size: 20px;
+  font-size: 16px;
 }
 .productsTitle{
   font-size: 46px;
@@ -58,7 +58,6 @@
   }
   .blackBanner{
     margin-top: 100px;
-    font-size: 16px;
   }
   .truckIcon{
     height: 25px;
