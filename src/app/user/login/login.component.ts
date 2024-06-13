@@ -61,7 +61,9 @@ export class LoginComponent implements OnInit {
     }
     this.userService.register(this.registerForm.value.email, this.registerForm.value.password).subscribe(response =>{
       if (response){
-        this.router.navigate(['/login'])
+        this.erroMessage = "You have registered successfully"
+        this.registerError = true
+        this.registerForm.reset()
       }else{
         this.erroMessage = "Email already in use"
         this.registerError = true
