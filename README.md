@@ -1,13 +1,23 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![MIT License][license-shield]][license-url]
 <br />
+<br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-plain.svg"  alt="Logo" width="80" height="80" >
-  </a>
-
   <h3 align="center">Street Wear Store Front-End</h3>
 </div>
+<br />
+<br />
+
+
+
+
+## Built With
+![Angular][Angular.io]
+![Bootstrap][Bootstrap.com]
+![TypeScript][TypeScript.com]
+![HTML5][HTML5.com]
+![CSS][CSS.com]
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -57,12 +67,6 @@ Entre na pasta do projeto e siga os seguintes passos:
 <img src="/src/assets/readME/loginGif.gif">
   
 
-### Built With
-![Angular][Angular.io]
-![Bootstrap][Bootstrap.com]
-![TypeScript][TypeScript.com]
-![HTML5][HTML5.com]
-![CSS][CSS.com]
 
 
 
@@ -77,7 +81,7 @@ Entre na pasta do projeto e siga os seguintes passos:
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/leonamprado/?profileId=ACoAAErE_OUBbqirIbX6pbbqSfLK7irAOwdV7jM
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-url]: /LICENSE
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
